@@ -1,0 +1,18 @@
+
+hpeesofsim (*) 551.shp Oct 27 2021, MINT version 5
+    (64-bit windows built: Thu Oct 28, 2021 03:25:42 +0000)
+
+
+***** Simulation started at Thu Mar  3 14:14:53 2022
+      Running on host: "DESKTOP-HNCP3G8"
+      In Directory: "C:\Users\JimG9\Desktop\neuromorphic_photonics\circuit_sim\VoltSave_wrk\data"
+      Process ID: 23368
+
+
+
+TRAN Tran1[1] <VoltSave_lib:rate_save:schematic>   time=(0 s->400 ns)
+
+
+Resource usage:
+  Total stopwatch time     =     0.70 seconds.
+

@@ -1,0 +1,74 @@
+
+hpeesofsim (*) 551.shp Oct 27 2021, MINT version 5
+    (64-bit windows built: Thu Oct 28, 2021 03:25:42 +0000)
+
+
+***** Simulation started at Tue Mar  8 14:36:32 2022
+      Running on host: "DESKTOP-HNCP3G8"
+      In Directory: "C:\Users\JimG9\Desktop\neuromorphic_photonics\circuit_sim\VoltSave_wrk\data"
+      Process ID: 24592
+
+Warning detected by hpeesofsim in topology check during circuit set up.
+    Number of nodes with only one device attached (topology corrected): 11
+
+
+TRAN Tran1[1] <VoltSave_lib:rate_save_no_clock:schematic>   time=(0 s->400 ns)
+Warning detected by hpeesofsim in  during TRAN analysis `Tran1'.
+
+    Time=1.000000e-11: Unable to solve 'cross()' to given tolerances.  
+    vams instance: INV_1.BUF.BUF
+      vams module: LOGIC_GATE_P
+
+Warning detected by hpeesofsim in  during TRAN analysis `Tran1'.
+
+    Time=2.101000e-11: Unable to solve 'cross()' to given tolerances.  
+    vams instance: AND2_2.AND
+      vams module: LOGIC_GATE_P
+
+Warning detected by hpeesofsim in  during TRAN analysis `Tran1'.
+
+    Time=2.101000e-11: Unable to solve 'cross()' to given tolerances.  
+    vams instance: NOR2_3.NOR
+      vams module: LOGIC_GATE_P
+
+Warning detected by hpeesofsim in  during TRAN analysis `Tran1'.
+
+    Time=2.390237e-11: Unable to solve 'cross()' to expression tolerance.  
+    vams instance: NOR2_3.NOR
+      vams module: LOGIC_GATE_P
+
+Warning detected by hpeesofsim in  during TRAN analysis `Tran1'.
+
+    Time=4.954499e-11: Unable to solve 'cross()' to expression tolerance.  
+    vams instance: INV_5.BUF.BUF
+      vams module: LOGIC_GATE_P
+
+Warning detected by hpeesofsim in  during TRAN analysis `Tran1'.
+
+    Time=4.028427e-08: Unable to solve 'cross()' to expression tolerance.  
+    vams instance: INV_5.BUF.BUF
+      vams module: LOGIC_GATE_P
+
+Warning detected by hpeesofsim in  during TRAN analysis `Tran1'.
+
+    Time=4.031471e-08: Unable to solve 'cross()' to expression tolerance.  
+    vams instance: INV_2.BUF.BUF
+      vams module: LOGIC_GATE_P
+
+Warning detected by hpeesofsim in  during TRAN analysis `Tran1'.
+
+    Time=4.031471e-08: Unable to solve 'cross()' to expression tolerance.  
+    vams instance: AND2_1.AND
+      vams module: LOGIC_GATE_P
+
+Warning detected by hpeesofsim in  during TRAN analysis `Tran1'.
+
+    Time=4.044277e-08: Unable to solve 'cross()' to expression tolerance.  
+    vams instance: INV_1.BUF.BUF
+      vams module: LOGIC_GATE_P
+
+
+
+Resource usage:
+  Total stopwatch time     =     1.86 seconds.
+

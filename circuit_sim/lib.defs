@@ -1,0 +1,4 @@
+INCLUDE $HPEESOF_DIR/oalibs/analog_rf.defs
+INCLUDE $HPEESOF_DIR/oalibs/dsp.defs
+DEFINE VoltSave_lib VoltSave_lib
+ASSIGN VoltSave_lib libMode shared

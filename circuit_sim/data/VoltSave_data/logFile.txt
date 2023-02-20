@@ -1,0 +1,21 @@
+
+hpeesofsim (*) 551.shp Oct 27 2021, MINT version 5
+    (64-bit windows built: Thu Oct 28, 2021 03:25:42 +0000)
+
+
+***** Simulation started at Thu Feb 17 14:40:02 2022
+      Running on host: "DESKTOP-HNCP3G8"
+      In Directory: "C:\Users\JimG9\Desktop\neuromorphic_photonics\circuit_sim\VoltSave_wrk\data"
+      Process ID: 28388
+
+Warning detected by hpeesofsim in topology check during circuit set up.
+    Number of nodes with no DC path to ground (topology corrected): 2
+
+
+
+TRAN Tran1[1] <VoltSave_lib:VoltSave:schematic>   time=(0 s->10 us)
+
+
+Resource usage:
+  Total stopwatch time     =     2.44 seconds.
+

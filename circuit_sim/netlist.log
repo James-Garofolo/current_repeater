@@ -1,0 +1,77 @@
+; Top Design: "VoltSave_lib:rate_save_no_clock:schematic"
+; Netlisted using Hierarchy Policy: "Standard"
+
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="VoltSave_lib:rate_save_no_clock:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+I_Source:SRC1  0 N__12 Type="I_DC" Idc=10 mA 
+V_Source:SRC2  N__17 0 Type="V_DC" Vdc=5 V SaveCurrent=1 
+C:C1  0 Vin C=4.5 nF 
+R:R1  imeasure 0 R=1 Ohm Noise=yes 
+#uselib "sml" , "OpAmp"
+OpAmp:AMP1  imeasure Vfet Vsaved Gain=100 dB Rout=100 Ohm RDiff=1 MOhm CDiff=0 F RCom=1 MOhm CCom=0 F SlewRate=1e+6 IOS=0 A VOS=0 V BW=10 GHz Inoise=0 Vnoise=0 VEE=-15 V VCC=15 V DeltaVEE=0.3 V DeltaVCC=0.3 V 
+C:C2  0 Vsaved C=1.0 nF 
+Tran:Tran1 StartTime=0.0 nsec StopTime=400.0 nsec MaxTimeStep=1.0 nsec LimitStepForTL=yes TimeStepControl=2 TruncTol=7.0 ChargeTol=1.0e-14 IntegMethod=0 MaxGearOrder=2 \
+Mu=0.5 MaxOrder=4 Freq[1]=1.0 GHz Order[1]=3 HB_Window=no \
+HB_Sol=no ImpApprox=no ShortTL_Delay=1.0 psec ImpMode=1 UseInitCond=yes \
+LoadGminDC=no CheckKCL=no CheckOnlyDeltaV=no OverloadAlert=no DeviceBypass=no \
+MaxIters=10 MaxItersDC=200 DevOpPtLevel=0 StatusLevel=2 OutputAllPoints=yes \
+NoiseScale=1 ImpEnforcePassivity=yes \
+OutputPlan="Tran1_Output" 
+
+OutputPlan:Tran1_Output \
+      Type="Output" \
+      UseNodeNestLevel=yes \
+      NodeNestLevel=2 \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2 \
+      UseDeviceCurrentNestLevel=no \
+      DeviceCurrentNestLevel=0 \
+      DeviceCurrentDeviceType="All" \
+      DeviceCurrentSymSyntax=yes \
+      UseCurrentNestLevel=yes \
+      CurrentNestLevel=999 \
+      UseDeviceVoltageNestLevel=no \
+      DeviceVoltageNestLevel=0 \
+      DeviceVoltageDeviceType="All"
+
+
+__debug_ImpLFEOff=0 
+R:R2  N__0 0 R=1 kOhm Noise=yes 
+#uselib "sml" , "OpAmp"
+OpAmp:AMP2  N__4 N__4 Vin Gain=100 dB Rout=100 Ohm RDiff=1 MOhm CDiff=0 F RCom=1 MOhm CCom=0 F SlewRate=1e+6 IOS=0 A VOS=0 V BW=1 MHz Inoise=0 Vnoise=0 VEE=-15 V VCC=15 V DeltaVEE=0.3 V DeltaVCC=0.3 V 
+
+model MOS_GENERIC_M1 mos_generic 
+"MOS_GENERIC_M1":MOS_GENERIC_N1  N__12 N__18 Iescaping 
+"MOS_GENERIC_M1":MOS_GENERIC_N2  Vin sample N__12 
+"MOS_GENERIC_M1":MOS_GENERIC_N3  Vin drain Iesc2 
+"MOS_GENERIC_M1":MOS_GENERIC_N4  N__4 N__29 N__0 
+"MOS_GENERIC_M1":MOS_GENERIC_N5  Vsaved latch N__4 
+"MOS_GENERIC_M1":MOS_GENERIC_N6  N__17 Vfet Iout 
+#uselib "sml" , "OpAmp"
+OpAmp:AMP3  Vsaved v1 Vin Gain=100 dB Rout=100 Ohm RDiff=1 MOhm CDiff=0 F RCom=1 MOhm CCom=0 F SlewRate=1e+6 IOS=0 A VOS=0 V BW=1 MHz Inoise=0 Vnoise=0 VEE=0 V VCC=5 V DeltaVEE=0.3 V DeltaVCC=0.3 V 
+#uselib "sml" , "OpAmp"
+OpAmp:AMP4  Vin v2 Vsaved Gain=100 dB Rout=100 Ohm RDiff=1 MOhm CDiff=0 F RCom=1 MOhm CCom=0 F SlewRate=1e+6 IOS=0 A VOS=0 V BW=1 MHz Inoise=0 Vnoise=0 VEE=0 V VCC=5 V DeltaVEE=0.3 V DeltaVCC=0.3 V 
+NOR_P:NOR2_1  v1 v2 Latched Vih=2.5 V Voh=5 V Vol=0 V 
+INV_P:INV_1  Vin N__8 Vih=1 mV Voh=5 V Vol=0 V 
+"DIODEM1":DIODE1  N__8 back Mode=1 Noise=yes 
+R:R3  back N__8 R=50 kOhm Noise=yes 
+INV_P:INV_2  back N__11 Vih=2.5 V Voh=5 V Vol=0 V 
+INV_P:INV_3  N__30 front Vih=2.5 V Voh=5 V Vol=0 V 
+C:C3  0 N__28 C=1 nF 
+C:C4  0 back C=2 nF 
+INV_P:INV_4  front N__24 Vih=2.5 V Voh=5 V Vol=0 V 
+AND_P:AND2_1  back N__24 sample Vih=2.5 V Voh=5 V Vol=0 V 
+model DIODEM1 dio500 
+AND_P:AND2_2  Latched N__26 drain Vih=2.5 V Voh=5 V Vol=0 V 
+NOR_P:NOR2_2  N__8 sample N__26 Vih=2.5 V Voh=5 V Vol=0 V 
+NOR_P:NOR2_3  drain sample latch Vih=2.5 V Voh=5 V Vol=0 V 
+INV_P:INV_5  latch N__29 Vih=2.5 V Voh=5 V Vol=0 V 
+INV_P:INV_6  sample N__18 Vih=2.5 V Voh=5 V Vol=0 V 
+V_Source:SRC3  N__22 0 Type="VtStep" V_Tran=pulse(time, 5 V, -1 V, 5 nsec, 1 nsec) SaveCurrent=1 
+"MOS_GENERIC_M1":MOS_GENERIC_N7  N__6 N__22 Vin 
+V_Source:SRC4  N__6 0 Type="V_DC" Vdc=1.0 V SaveCurrent=1 
+R:R4  Iesc2 0 R=1 Ohm Noise=yes 
+R:R5  N__30 N__28 R=50 Ohm Noise=yes 
+R:R6  N__28 N__11 R=50 Ohm Noise=yes 
+R:R7  Iescaping 0 R=100 Ohm Noise=yes 
